@@ -12,12 +12,8 @@ const {
   paddingX,
   hollowPath,
 } = settings;
-<<<<<<< HEAD
 const font = 'RoGSanSrfStd-Bd, GlowSansSC-Normal-Heavy_diff, apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif';
-=======
-const font = `${fontSize}px RoGSanSrfStd-Bd, GlowSansSC-Normal-Heavy_diff, apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif`;
 const subtitleFont = `${subtitleFontSize}px RoGSanSrfStd-Bd, GlowSansSC-Normal-Heavy_diff, apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif`;
->>>>>>> 802a275bf434efa8de358c449a79925f5ebf56a3
 
 export default class LogoCanvas {
   public canvas: HTMLCanvasElement;
@@ -48,11 +44,8 @@ export default class LogoCanvas {
     loading.classList.remove('hidden');
     const c = this.ctx;
     //predict canvas width
-<<<<<<< HEAD
     await loadFont(this.textL + this.textR, this.scaleLevel);
-=======
     await loadFont(this.textL + this.textR + this.subtitle);
->>>>>>> 802a275bf434efa8de358c449a79925f5ebf56a3
     loading.classList.add('hidden');
     c.font = `${fontSize * this.scaleLevel}px ${font}`;
     this.textMetricsL = c.measureText(this.textL);
