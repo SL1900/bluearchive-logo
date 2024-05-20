@@ -104,7 +104,8 @@ export default class LogoCanvas {
       this.canvasWidthL - this.canvas.height / 2 + (this.graphOffset.X * this.scaleLevel),
       this.graphOffset.Y * this.scaleLevel,
       canvasHeight * this.scaleLevel,
-      canvasHeight * this.scaleLevel
+      canvasHeight * this.scaleLevel,
+      this.textColor
     );
     c.fillStyle = this.secondaryColor;
     c.textAlign = 'start';
@@ -118,10 +119,12 @@ export default class LogoCanvas {
     c.globalCompositeOperation = 'source-over';
     c.fillText(this.textR, this.canvasWidthL, this.canvas.height * textBaseLine);
     c.resetTransform();
-    c.font = subtitleFont;
+    // c.font = `${subtitleFont}`;
+    c.font = `${subtitleFont.replace(/\d+px/gi, subtitleFontSize * this.scaleLevel + "px")}`;
+    console.log(c.font)
     c.setTransform(1, 0, horizontalTilt * 1, 1, 0, 0);
     c.textAlign = 'end';
-    c.fillText(this.subtitle, this.canvasWidthL + this.textWidthR + subtitleFontSize, this.canvas.height * textBaseLine + subtitleFontSize + 5);
+    c.fillText(this.subtitle, this.canvasWidthL + this.textWidthR + subtitleFontSize * this.scaleLevel, this.canvas.height * textBaseLine + subtitleFontSize * this.scaleLevel + 5);
     c.resetTransform();
     const graph = {
       X: this.canvasWidthL - this.canvas.height / 2 + (graphOffset.X * this.scaleLevel),
