@@ -35,6 +35,7 @@ export default class LogoCanvas {
   private scaleLevel = 1;
   private swapColors = false;
   private darkMode = false;
+  private drawSubtitle = false;
   constructor() {
     this.canvas = document.querySelector('#canvas')!;
     this.ctx = this.canvas.getContext('2d')!;
@@ -119,13 +120,13 @@ export default class LogoCanvas {
     c.globalCompositeOperation = 'source-over';
     c.fillText(this.textR, this.canvasWidthL, this.canvas.height * textBaseLine);
     c.resetTransform();
-    // c.font = `${subtitleFont}`;
-    c.font = `${subtitleFont.replace(/\d+px/gi, subtitleFontSize * this.scaleLevel + "px")}`;
-    console.log(c.font)
-    c.setTransform(1, 0, horizontalTilt * 1, 1, 0, 0);
-    c.textAlign = 'end';
-    c.fillText(this.subtitle, this.canvasWidthL + this.textWidthR + subtitleFontSize * this.scaleLevel, this.canvas.height * textBaseLine + subtitleFontSize * this.scaleLevel + 5);
-    c.resetTransform();
+    if(this.drawSubtitle) {
+        c.font = `${subtitleFont.replace(/\d+px/gi, subtitleFontSize * this.scaleLevel + "px")}`;
+        c.setTransform(1, 0, horizontalTilt * 1, 1, 0, 0);
+        c.textAlign = 'end';
+        c.fillText(this.subtitle, this.canvasWidthL + this.textWidthR + subtitleFontSize * this.scaleLevel, this.canvas.height * textBaseLine + subtitleFontSize * this.scaleLevel + 5);
+        c.resetTransform();
+    }
     const graph = {
       X: this.canvasWidthL - this.canvas.height / 2 + (graphOffset.X * this.scaleLevel),
       Y: this.graphOffset.Y * this.scaleLevel,
@@ -199,6 +200,11 @@ export default class LogoCanvas {
       this.transparentBg = tSwitch.checked;
       this.draw();
     });
+    const sSwitch = document.querySelector("#sub-toggle")! as HTMLInputElement;
+    sSwitch.addEventListener("change", () => {
+        this.drawSubtitle = !this.drawSubtitle;
+        this.draw();
+    })
     const scSwitch = document.querySelector('#swap-colors')! as HTMLInputElement;
     scSwitch.addEventListener('change', () => {
       this.swapColors = scSwitch.checked;
