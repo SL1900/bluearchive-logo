@@ -63,17 +63,24 @@
             <span class="flex-1"><span class="mr-2">Y</span><input type="number" placeholder="Type here" value="0"
                 class="input input-bordered input-sm input-primary w-32" id="graphY" /></span>
           </div>
+          <div class="flex items-center justify-evenly my-4">
+              <span class="flex items-center flex-1"><span class="mr-2">X</span><input type="range" min="-200" max="400"  value="-15"
+                  class="range w-32" id="graphX-range"/></span>
+              <span class="flex items-center flex-1"><span class="mr-2">Y</span><input type="range" min="-200" max="400"  value="0"
+                  class="range w-32" id="graphY-range"/></span>
+              <!-- -->
+          </div>
           <div class="flex items-center gap-2 my-4">
             <div class="i18n" data-i18n="scale-level">Scale Level</div>
             <input type="number" placeholder="1" value="1" min="1" max="4"
                 class="input input-bordered input-sm input-primary w-32" id="scaleLevel" />
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 my-4">
             <div class="i18n" data-i18n="subtitle">Sub Title</div>
             <input id="subtitle" type="text" placeholder="Type here" value="ブルーアーカイブ"
               class="input input-bordered input-sm input-primary w-50" />
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 my-4">
             <div class="i18n" data-i18n="accent-color">Accent color</div>
             <input type="color" value="#128AFA" class="input input-bordered input-sm input-primary w-32"
               id="accent-color" />

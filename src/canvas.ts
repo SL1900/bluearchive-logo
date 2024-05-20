@@ -221,13 +221,33 @@ export default class LogoCanvas {
       this.draw();
     });
     const gx = document.querySelector('#graphX')! as HTMLInputElement;
+    const gxr = document.querySelector('#graphX-range')! as HTMLInputElement;
     const gy = document.querySelector('#graphY')! as HTMLInputElement;
+    const gyr = document.querySelector('#graphY-range')! as HTMLInputElement;
+    gyr.max = ( this.canvas.height / 2 ).toString();
+    gyr.min = ( -this.canvas.height / 2 ).toString();
+    gx.value = gx.getAttribute("value") || "-15";
+    gy.value = gy.getAttribute("value") || "0";
+    gxr.value = gx.value;
+    gyr.value = gy.value;
     gx.addEventListener('input', () => {
       this.graphOffset.X = parseInt(gx.value);
+      gxr.value = gx.value;
+      this.draw();
+    });
+    gxr.addEventListener('input', () => {
+      this.graphOffset.X = parseInt(gxr.value);
+      gx.value = gxr.value;
       this.draw();
     });
     gy.addEventListener('input', () => {
       this.graphOffset.Y = parseInt(gy.value);
+      gyr.value = gy.value;
+      this.draw();
+    });
+    gyr.addEventListener('input', () => {
+      this.graphOffset.Y = parseInt(gyr.value);
+      gy.value = gyr.value;
       this.draw();
     });
     const scaleInput = document.querySelector('#scaleLevel')! as HTMLInputElement;
@@ -254,6 +274,9 @@ export default class LogoCanvas {
     } else {
       this.canvasWidthR = (canvasWidth * this.scaleLevel) / 2;
     }
+    const gxr = document.querySelector('#graphX-range')! as HTMLInputElement;
+    gxr.min = (-Math.round(this.canvasWidthL)).toString();
+    gxr.max = (Math.round(this.canvasWidthR)).toString();
     this.canvas.width = this.canvasWidthL + this.canvasWidthR;
   }
   generateImg() {
