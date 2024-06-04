@@ -251,10 +251,17 @@ export default class LogoCanvas {
       this.draw();
     });
     const scaleInput = document.querySelector('#scaleLevel')! as HTMLInputElement;
-    scaleInput.addEventListener('input', () => {
+    const scaleLabel = document.querySelector('#scale-level-label')! as HTMLInputElement;
+    scaleInput.value = "1";
+    scaleInput.addEventListener('input', async () => {
       this.scaleLevel = parseInt(scaleInput.value);
-      this.draw();
+      await this.draw();
+
+      let width = Math.floor(this.textWidthL + this.textWidthR + paddingX * this.scaleLevel * 2);
+      let height = this.canvas.height * this.scaleLevel;
+      scaleLabel.textContent = `${width}px x ${height}px`;
     });
+    scaleInput.dispatchEvent(new Event("input"));
   }
   setWidth() {
     this.textWidthL =
