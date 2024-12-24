@@ -12,13 +12,13 @@
   "devDependencies": {
     "@types/lodash-es": "^4.17.9",
     "autoprefixer": "^10.4.16",
-    "daisyui": "^3.9.1",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "daisyui": "^4.12.22",
     "i18next": "^23.5.1",
     "lodash-es": "^4.17.21"
   }
