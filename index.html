@@ -23,76 +23,95 @@
       </div>
     </div>
   </section>
-  <section class="w-full mx-auto my-6 flex flex-col sm:w-[32rem]">
-    <div class="flex justify-center my-4 px-2">
-      <input id="textL" type="text" placeholder="Type here" value="Blue"
-        class="input input-bordered input-md input-primary mr-1 w-40 max-w-[14rem] flex-1" />
-      <input id="textR" type="text" placeholder="Type here" value="Archive"
-        class="input input-bordered input-md input-secondary ml-1 w-40 max-w-[14rem] flex-1" />
-    </div>
-    <div class="my-2">
-      <label class="cursor-pointer label justify-start mx-10">
-          <input type="checkbox" class="toggle togle-primary" id="transparent" />
-          <span class="i18n label-text text-base ml-4 mr-16" data-i18n="transparent-backround">Transparent Background</span>
-      </label>
-
-      <label class="cursor-pointer label justify-start mx-10">
-        <input type="checkbox" class="toggle toggle-primary" id="sub-toggle" />
-        <span class="i18n label-text text-base ml-4 mr-16" data-i18n="subtitle-toggle">Toggle subtitle</span>
-      </label>
-
-      <label class="cursor-pointer label justify-start mx-10">
-        <input type="checkbox" class="toggle toggle-primary" id="swap-colors" />
-        <span class="i18n label-text text-base ml-4 mr-16" data-i18n="swap-colors">Swap Colors</span>
-      </label>
-
-      <label class="cursor-pointer label justify-start mx-10">
-        <input type="checkbox" class="toggle toggle-primary" id="dark-mode" />
-        <span class="i18n label-text text-base ml-4 mr-16" data-i18n="dark-mode">Dark Mode</span>
-      </label>
-    </div>
-    <div class="mx-6 my-4">
-      <div class="collapse collapse-arrow bg-base-100">
-        <input type="checkbox" />
-        <div class="i18n collapse-title font-medium" data-i18n="advance">Advance settings</div>
-        <div class="collapse-content">
-          <div class="i18n" data-i18n="halo-cross">Halo & Cross position</div>
-          <div class="flex justify-evenly my-4">
-            <span class="flex-1"><span class="mr-2">X</span><input type="number" placeholder="Type here" value="-15"
-                class="input input-bordered input-sm input-primary w-32 mr-2" id="graphX" /></span>
-            <span class="flex-1"><span class="mr-2">Y</span><input type="number" placeholder="Type here" value="0"
-                class="input input-bordered input-sm input-primary w-32" id="graphY" /></span>
-          </div>
-          <div class="flex items-center justify-evenly my-4">
-              <span class="flex items-center flex-1"><span class="mr-2">X</span><input type="range" min="-200" max="400"  value="-15"
-                  class="range w-32" id="graphX-range"/></span>
-              <span class="flex items-center flex-1"><span class="mr-2">Y</span><input type="range" min="-200" max="400"  value="0"
-                  class="range w-32" id="graphY-range"/></span>
-              <!-- -->
-          </div>
-          <div class="flex items-center gap-2 my-4">
-            <div class="i18n" data-i18n="scale-level">Scale Level</div>
-            <input type="number" placeholder="1" value="1" min="1" max="4"
-                class="input input-bordered input-sm input-primary w-32" id="scaleLevel" />
-            <div id="scale-level-label"></div>
-          </div>
-          <div class="flex items-center gap-2 my-4">
-            <div class="i18n" data-i18n="subtitle">Sub Title</div>
-            <input id="subtitle" type="text" placeholder="Type here" value="ブルーアーカイブ"
-              class="input input-bordered input-sm input-primary w-50" />
-          </div>
-          <div class="flex items-center gap-2 my-4">
-            <div class="i18n" data-i18n="accent-color">Accent color</div>
-            <input type="color" value="#128AFA" class="input py-1 input-bordered input-sm input-primary w-32"
-              id="accent-color" />
-          </div>
-        </div>
+  <section class="w-full mx-auto my-6 flex flex-col lg:w-4/5 md:w-[32rem]">
+      <div class="flex justify-end gap-4 my-1">
+          <span><button class="i18n btn btn-primary" id="save" data-i18n="save">Save</button></span>
+          <span><button class="i18n btn btn-primary" id="copy" data-i18n="copy">Copy</button></span>
       </div>
-    </div>
-    <div class="flex justify-evenly my-4">
-      <span><button class="i18n btn btn-primary" id="save" data-i18n="save">Save</button></span>
-      <span><button class="i18n btn btn-primary" id="copy" data-i18n="copy">Copy</button></span>
-    </div>
+      <div class="flex flex-row justify-center flex-wrap">
+          <div>
+              <div class="flex justify-center my-4 px-2">
+                  <div class="flex flex-col items-center">
+                      <div class="text-xs">Left</div>
+                      <input id="textL" type="text" placeholder="Type here" value="Blue"
+                      class="input input-bordered input-md input-primary mr-1 w-40 max-w-[14rem]" />
+                  </div>
+                  <div class="flex flex-col items-center">
+                      <div class="text-xs">Right</div>
+                      <input id="textR" type="text" placeholder="Type here" value="Archive"
+                      class="input input-bordered input-md input-secondary ml-1 w-40 max-w-[14rem]" />
+                  </div>
+              </div>
+              <div class="my-2">
+                  <label class="cursor-pointer label justify-start mx-10">
+                      <input type="checkbox" class="toggle togle-primary" id="transparent" />
+                      <span class="i18n label-text text-base ml-4 mr-16" data-i18n="transparent-backround">Transparent Background</span>
+                  </label>
+                  <label class="cursor-pointer label justify-start mx-10">
+                      <input type="checkbox" class="toggle toggle-primary" id="sub-toggle" />
+                      <span class="i18n label-text text-base ml-4 mr-16" data-i18n="subtitle-toggle">Toggle subtitle</span>
+                  </label>
+
+                  <label class="cursor-pointer label justify-start mx-10">
+                      <input type="checkbox" class="toggle toggle-primary" id="swap-colors" />
+                      <span class="i18n label-text text-base ml-4 mr-16" data-i18n="swap-colors">Swap Colors</span>
+                  </label>
+
+                  <label class="cursor-pointer label justify-start mx-10">
+                      <input type="checkbox" class="toggle toggle-primary" id="dark-mode" />
+                      <span class="i18n label-text text-base ml-4 mr-16" data-i18n="dark-mode">Dark Mode</span>
+                  </label>
+              </div>
+          </div>
+          <div class="mx-6 my-4">
+              <div class="collapse collapse-arrow bg-base-100">
+                  <input type="checkbox" />
+                  <div class="i18n collapse-title font-medium" data-i18n="advance">Advance settings</div>
+                  <div class="collapse-content">
+                      <div class="i18n" data-i18n="halo-cross">Halo & Cross position</div>
+                      <div class="flex justify-evenly my-4">
+                          <span class="flex-1"><span class="mr-2">X</span><input type="number" placeholder="Type here" value="-15"
+                              class="input input-bordered input-sm input-primary w-32 mr-2" id="graphX" /></span>
+                          <span class="flex-1"><span class="mr-2">Y</span><input type="number" placeholder="Type here" value="0"
+                              class="input input-bordered input-sm input-primary w-32" id="graphY" /></span>
+                      </div>
+                      <div class="flex items-center justify-evenly my-4">
+                          <span class="flex items-center flex-1"><span class="mr-2">X</span><input type="range" min="-200" max="400"  value="-15"
+                              class="range w-32" id="graphX-range"/></span>
+                          <span class="flex items-center flex-1"><span class="mr-2">Y</span><input type="range" min="-200" max="400"  value="0"
+                              class="range w-32" id="graphY-range"/></span>
+                          <!-- -->
+                      </div>
+                      <div class="flex items-center gap-2 my-4">
+                          <div class="i18n" data-i18n="scale-level">Scale Level</div>
+                          <input type="number" placeholder="1" value="1" min="1" max="4"
+                          class="input input-bordered input-sm input-primary w-32" id="scaleLevel" />
+                          <div id="scale-level-label"></div>
+                      </div>
+                      <div class="flex items-center gap-2 my-4">
+                          <div class="i18n" data-i18n="subtitle">Sub Title</div>
+                          <input id="subtitle" type="text" placeholder="Type here" value="ブルーアーカイブ"
+                          class="input input-bordered input-sm input-primary w-50" />
+                      </div>
+                      <div class="flex items-center gap-2 my-2">
+                          <div class="i18n" data-i18n="main-color">Main color</div>
+                          <input type="color" value="#2B2B2B" class="input py-1 input-bordered input-sm input-primary w-32"
+                          id="main-color" />
+                          <label class="cursor-pointer label justify-start mx-2">
+                              <input type="checkbox" class="toggle toggle-primary" id="main-color-dark-relative-mode" />
+                              <span class="i18n label-text text-base ml-4 mr-16" data-i18n="main-color-dark-relative-mode">Invert in dark mode</span>
+                          </label>
+                      </div>
+                      <div class="flex items-center gap-2 my-4">
+                          <div class="i18n" data-i18n="accent-color">Accent color</div>
+                          <input type="color" value="#128AFA" class="input py-1 input-bordered input-sm input-primary w-32"
+                          id="accent-color" />
+                          <button class="i18n btn btn-sm" id="reset-colors" data-i18n="reset-colors">Reset colors</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     <label class="swap cursor-default">
       <input type="checkbox" disabled id="message-switch" />
       <div class="alert alert-success swap-on">
@@ -118,8 +137,14 @@
         </li>
       </ul>
       <h2 class="i18n text-2xl font-bold leading-loose" data-i18n="github-repo">GitHub repo</h2>
-      <a href="https://github.com/nulla2011/Bluearchive-logo" target="_blank"
-        class="text-md">https://github.com/nulla2011/Bluearchive-logo</a>
+      <div>
+          <div>Original</div>
+          <a href="https://github.com/nulla2011/Bluearchive-logo" target="_blank"
+              class="text-md">https://github.com/nulla2011/Bluearchive-logo</a>
+          <div>This version</div>
+          <a href="https://github.com/nulla2011/Bluearchive-logo" target="_blank"
+              class="text-md">https://github.com/SL1900/bluearchive-logo</a>
+      </div>
     </section>
   </footer>
   <script type="module" src="/src/main.ts"></script>
