@@ -17,5 +17,9 @@
   "glow": "Wêlai Glow Sans",
   "github-repo": "GitHub repo",
   "subtitle-toggle": "Toggle subtitle",
-  "subtitle": "Subtitle"
+  "subtitle": "Subtitle",
+  "main-color": "Main color",
+  "main-color-dark-relative-mode": "Invert in dark mode",
+  "transparent-backround": "Transparent background",
+  "reset-colors": "Reset colors"
 }
