@@ -331,7 +331,7 @@ export default class LogoCanvas {
       const ctx = outputCanvas.getContext('2d')!;
       ctx.drawImage(
         this.canvas,
-        (canvasWidth * this.scaleLevel) / 2 - this.textWidthL - (paddingX * this.scaleLevel),
+        this.canvasWidthL - this.textWidthL - (paddingX * this.scaleLevel),
         0,
         this.textWidthL + this.textWidthR + (paddingX * this.scaleLevel) * 2,
         this.canvas.height,
